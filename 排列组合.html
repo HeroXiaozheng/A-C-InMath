@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>排列组合——JavaScript的实现</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		//相当于数学中的C运算
+		function Combination(m,n){
+			var getC=document.getElementById('getC');
+			getC.innerText=factory(m,n)/factory(n,n);
+		}
+		//相当于数学中的A运算
+		function Array(n,n){
+			var getA=document.getElementById('getA');
+			getA.innerText=factory(n,n);
+		}
+		//用来计算阶乘
+		function factory(m,n) {
+			var num=1;
+			var count=0;
+			for(var i=m;i>0;i--){
+				if(count==n){
+					break;
+				}
+				num*=i;
+				count++;
+			}
+			return num;
+		}
+		
+	</script>
+	<style type="text/css">
+		div{
+			margin:0 auto;
+			display: flex;
+			flex-flow: column;
+		}
+		div p{
+
+			align-self: center;
+		}
+		p sup{
+			margin: 0 0 0 -5px;
+		}
+		span{
+			color: #ff0000;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	<p>排列组合计算</p>
+	<p>A<sub>4</sub><sup>4</sup>=<button onclick="Array(4,4);">查看结果</button><span id="getA"></span></p>
+	<p>C<sub>5</sub><sup>4</sup>=<button onclick="Combination(5,4);">查看结果</button><span id="getC"></span></p>
+	</div>
+</body>
+</html>
